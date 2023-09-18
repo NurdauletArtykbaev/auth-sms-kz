@@ -1,0 +1,39 @@
+{
+  "name": "nurdaulet-artykbaev/core-auth",
+  "description": "Authorization use sms providers or email ",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Nurdaulet",
+      "email": "artykbaev.nurdaulet@mail.ru"
+    }
+  ],
+  "require": {
+    "php": "^8.0",
+    "illuminate/database": "^9.0",
+    "illuminate/support": "^9.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^7.30",
+    "phpunit/phpunit": "^9.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "NurdauletArtykbaev\\CoreAuth\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "NurdauletArtykbaev\\CoreAuth\\Test\\": "tests/"
+  },
+  "scripts": {
+    "test": [
+      "vendor/bin/phpunit"
+    ]
+  },
+  "extra": {
+    "laravel": [
+      "NurdauletArtykbaev\\CoreAuth\\Providers\\AuthServiceProvider"
+    ]
+  }
+}
