@@ -1,9 +1,14 @@
 <?php
 namespace NurdauletArtykbaev\CoreAuth\Services;
 
+use Illuminate\Support\Facades\Cache;
+use NurdauletArtykbaev\CoreAuth\Models\User;
+use NurdauletArtykbaev\CoreAuth\Repositories\AuthRepository;
+use StringFormatter;
+
 class AuthService
 {
-    public function __construct(private AuthRepository $authRepository, private UserService $userService)
+    public function __construct(private AuthRepository $authRepository)
     {
     }
 
@@ -12,18 +17,14 @@ class AuthService
         $phone = StringFormatter::onlyDigits($phone) ;
         $code = rand(1000, 9999);
         $user = User::wherePhone($phone)->first();
-        if ($user?->id) {
-            $this->userService->checkBanned($user);
-        }
 
         if (!app()->isProduction()) {
             $code = $phone % 10000;
-
         } else {
             if (!empty($user) && $user->code) {
                 $code = $user->code;
-            }else if($phone != '77477628577') {
-                \SMS::to($phone)->text("Naprocat.kz код: $code")->send();
+            }else  {
+                \SMS::to($phone)->text(env('app_name'). " код: $code")->send();
             }
         }
 

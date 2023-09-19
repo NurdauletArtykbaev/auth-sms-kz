@@ -1,9 +1,11 @@
 <?php
 namespace NurdauletArtykbaev\CoreAuth\Providers;
 
+use Illuminate\Support\Composer;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\ServiceProvider;
 
-class AuthServiceProvider extends ServiceProvider
+class CoreAuthServiceProvider extends ServiceProvider
 {
 
     public function boot()
@@ -14,7 +16,6 @@ class AuthServiceProvider extends ServiceProvider
             ]);
         }
         $this->loadRoutesFrom(__DIR__ . '/../../routes/api.php');
-
     }
 
 }

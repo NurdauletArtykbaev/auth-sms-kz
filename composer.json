@@ -32,8 +32,10 @@
     ]
   },
   "extra": {
-    "laravel": [
-      "NurdauletArtykbaev\\CoreAuth\\Providers\\AuthServiceProvider"
-    ]
+    "laravel": {
+      "providers": [
+        "NurdauletArtykbaev\\CoreAuth\\Providers\\CoreAuthServiceProvider"
+      ]
+    }
   }
 }
