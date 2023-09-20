@@ -1,8 +1,8 @@
 <?php
 
-use NurdauletArtykbaev\CoreAuth\Helpers;
+namespace Nurdaulet\AuthSmsKz\Helpers;
 
-class StringFormatter
+class StringFormatterHelper
 {
 
 

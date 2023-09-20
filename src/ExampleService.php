@@ -1,5 +1,5 @@
 <?php
-namespace NurdauletArtykbaev\CoreAuth;
+namespace Nurdaulet\AuthSmsKz;
 
 class ExampleService
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace NurdauletArtykbaev\CoreAuth\Repositories;
+namespace Nurdaulet\AuthSmsKz\Repositories;
 
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cache;
-use NurdauletArtykbaev\CoreAuth\Models\User;
-use StringFormatter;
+use Nurdaulet\AuthSmsKz\Facades\StringFormatter;
+use Nurdaulet\AuthSmsKz\Models\User;
 
 class AuthRepository
 {

@@ -1,5 +1,5 @@
 {
-  "name": "nurdaulet-artykbaev/core-auth",
+  "name": "nurdaulet/auth-sms-kz",
   "description": "Authorization use sms providers or email ",
   "minimum-stability": "stable",
   "license": "proprietary",
@@ -12,7 +12,8 @@
   "require": {
     "php": "^8.0",
     "illuminate/database": "^9.0",
-    "illuminate/support": "^9.0"
+    "illuminate/support": "^9.0",
+    "nurdaulet/sms_kz": "^1.0.3"
   },
   "require-dev": {
     "orchestra/testbench": "^7.30",
@@ -20,11 +21,11 @@
   },
   "autoload": {
     "psr-4": {
-      "NurdauletArtykbaev\\CoreAuth\\": "src/"
+      "Nurdaulet\\AuthSmsKz\\": "src/"
     }
   },
   "autoload-dev": {
-    "NurdauletArtykbaev\\CoreAuth\\Test\\": "tests/"
+    "NurdauletArtykbaev\\AuthSmsKz\\Test\\": "tests/"
   },
   "scripts": {
     "test": [
@@ -34,8 +35,11 @@
   "extra": {
     "laravel": {
       "providers": [
-        "NurdauletArtykbaev\\CoreAuth\\Providers\\CoreAuthServiceProvider"
-      ]
+        "Nurdaulet\\AuthSmsKz\\Providers\\AuthSmsKzServiceProvider"
+      ],
+      "aliases": {
+        "StringFormatter": "Nurdaulet\\AuthSmsKz\\Facades\\StringFormatter"
+      }
     }
   }
 }

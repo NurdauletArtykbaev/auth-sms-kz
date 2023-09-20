@@ -1,11 +1,12 @@
 <?php
 
-namespace NurdauletArtykbaev\CoreAuth\Http\Controllers\Api;
+namespace Nurdaulet\AuthSmsKz\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use NurdauletArtykbaev\CoreAuth\Http\Requests\PhoneNumberRequest;
-use NurdauletArtykbaev\CoreAuth\Http\Requests\VerifyOtpRequest;
-use NurdauletArtykbaev\CoreAuth\Services\AuthService;
+use Nurdaulet\AuthSmsKz\Http\Requests\PhoneNumberRequest;
+use Nurdaulet\AuthSmsKz\Http\Requests\VerifyOtpRequest;
+use Nurdaulet\AuthSmsKz\Models\User;
+use Nurdaulet\AuthSmsKz\Services\AuthService;
 
 class AuthController
 {
@@ -15,7 +16,7 @@ class AuthController
 
     public function requestOtp(PhoneNumberRequest $request)
     {
-        $this->loginService->requestOtp($request->phone);
+        $this->authService->requestOtp($request->phone);
 
         return response()->json(['data' => null]);
     }
@@ -49,8 +50,9 @@ class AuthController
         $data = $this->authService->login($request->get('phone'), $request->get('code'));
 
         return response()->json([
-            'token' => $data,
-            'refresh_token' => $data
+            'data' =>[
+                'token' => $data,
+            ]
         ]);
     }
 
@@ -78,6 +80,8 @@ class AuthController
 
     public function logout(Request $request)
     {
+        $ref = new \ReflectionClass($request->user());
+        dd($request->user()->getAttributes(), (new User())->getAttributes());
         $request->user()->tokens()->delete();
 
         return response()->json([

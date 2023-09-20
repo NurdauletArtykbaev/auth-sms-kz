@@ -1,13 +1,13 @@
 <?php
 
-namespace NurdauletArtykbaev\CoreAuth\Facades;
+namespace Nurdaulet\AuthSmsKz\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class SMS extends Facade
+class StringFormatter extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'sms_service';
+        return 'stringFormatter';
     }
 }

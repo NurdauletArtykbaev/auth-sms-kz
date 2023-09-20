@@ -1,10 +1,10 @@
 <?php
-namespace NurdauletArtykbaev\CoreAuth\Services;
+namespace Nurdaulet\AuthSmsKz\Services;
 
 use Illuminate\Support\Facades\Cache;
-use NurdauletArtykbaev\CoreAuth\Models\User;
-use NurdauletArtykbaev\CoreAuth\Repositories\AuthRepository;
-use StringFormatter;
+use Nurdaulet\AuthSmsKz\Facades\StringFormatter;
+use Nurdaulet\AuthSmsKz\Models\User;
+use Nurdaulet\AuthSmsKz\Repositories\AuthRepository;
 
 class AuthService
 {
@@ -24,7 +24,7 @@ class AuthService
             if (!empty($user) && $user->code) {
                 $code = $user->code;
             }else  {
-                \SMS::to($phone)->text(env('app_name'). " код: $code")->send();
+                \SmsKz::to($phone)->text(env('app_name'). " код: $code")->send();
             }
         }
 

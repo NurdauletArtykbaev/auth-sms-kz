@@ -1,6 +1,6 @@
 <?php
 
-namespace NurdauletArtykbaev\CoreAuth\Http\Requests;
+namespace Nurdaulet\AuthSmsKz\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
